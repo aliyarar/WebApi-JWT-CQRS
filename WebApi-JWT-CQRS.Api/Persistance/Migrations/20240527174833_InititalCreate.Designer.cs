@@ -11,8 +11,8 @@ using WebApi_JWT_CQRS.Api.Persistance.Context;
 namespace WebApi_JWT_CQRS.Api.Persistance.Migrations
 {
     [DbContext(typeof(JwtCqrsContext))]
-    [Migration("20240527173831_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240527174833_InititalCreate")]
+    partial class InititalCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
