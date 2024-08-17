@@ -1,0 +1,9 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+@WebApi_JWT_CQRS_Api_HostAddress = http://localhost:5281
+
+GET {{WebApi_JWT_CQRS_Api_HostAddress}}/api/Products
+Accept: application/json
+
+###
+
+
