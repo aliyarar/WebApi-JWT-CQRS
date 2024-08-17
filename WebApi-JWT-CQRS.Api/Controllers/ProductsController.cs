@@ -22,5 +22,12 @@ namespace WebApi_JWT_CQRS.Api.Controllers
             var result = await this.mediator.Send(new GetAllProductsQueryRequest());
             return Ok(result);
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(int Id)
+        {
+            var result = await this.mediator.Send(new GetProductQueryRequest(Id));
+            return result==null? NotFound() : Ok(result);
+        }
     }
 }
