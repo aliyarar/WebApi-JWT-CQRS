@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebApi_JWT_CQRS.Api.Core.Application.Features.CQRS.Commands;
 using WebApi_JWT_CQRS.Api.Core.Application.Features.CQRS.Queries;
 
 namespace WebApi_JWT_CQRS.Api.Controllers
@@ -24,10 +25,24 @@ namespace WebApi_JWT_CQRS.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int Id)
+        public async Task<IActionResult> Get(int id)
         {
-            var result = await this.mediator.Send(new GetProductQueryRequest(Id));
-            return result==null? NotFound() : Ok(result);
+            var result = await this.mediator.Send(new GetProductQueryRequest(id));
+            return result == null ? NotFound() : Ok(result);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await this.mediator.Send(new GetProductQueryRequest(id));
+            return NoContent();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(CreateProductCommandRequest request)
+        {
+            await this.mediator.Send(request);
+            return Created("", request);
         }
     }
 }
