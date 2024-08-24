@@ -22,13 +22,7 @@ builder.Services.AddDbContext<JwtCqrsContext>(opt =>
 
 builder.Services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
 builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
-builder.Services.AddAutoMapper(opt =>
-{
-    opt.AddProfiles(new List<Profile>()
-    {
-        new ProductProfile()
-    });
-});
+builder.Services.AddAutoMapper(typeof(ProductProfile), typeof(CategoryProfile));
 
 var app = builder.Build();
 

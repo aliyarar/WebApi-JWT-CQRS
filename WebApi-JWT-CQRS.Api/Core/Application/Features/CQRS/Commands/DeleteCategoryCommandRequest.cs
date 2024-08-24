@@ -1,13 +1,12 @@
 ﻿using MediatR;
-using WebApi_JWT_CQRS.Api.Core.Domain;
 
 namespace WebApi_JWT_CQRS.Api.Core.Application.Features.CQRS.Commands
 {
-    public class DeleteProductCommandRequest : IRequest<Unit>
+    public class DeleteCategoryCommandRequest: IRequest<Unit>
     {
         public int Id { get; set; }
 
-        public DeleteProductCommandRequest(int id)
+        public DeleteCategoryCommandRequest(int id)
         {
             this.Id = id;
         }
